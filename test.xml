@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<strings>
+	<names>
+		<value>Darrak</value>
+		<value>Delg</value>
+		<value>Gardain</value>
+		<value>Harbek</value>
+		<value>Kildrak</value>
+		<value>Morgran</value>
+		<value>Orsik</value>
+		<value>Oskar</value>
+		<value>Rangrim</value>
+		<value>Rurik</value>
+	</names>
+	<misc>
+		<name>Rurik</name>
+		<age>25</age>
+		<weigth>78.9</weigth>
+	</misc>
+</strings>
