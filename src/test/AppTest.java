@@ -23,6 +23,8 @@ import java.util.logging.Level;
 import javax.xml.bind.JAXBContext;
 import org.w3c.dom.Element;
 
+import com.xmltools.XMLTools;
+
 /**
  * @hidden
  */
@@ -30,27 +32,33 @@ import org.w3c.dom.Element;
 public class AppTest
 {
 	private static Element testElement;
+	private static Element test2Element;
 	private static String TEST_FILE = "test.xml";
+	private static String TEST_FILE2 = "test2.xml";
 
 	
 	public static void main(String[] args)
 	{
 		try
 		{
-			InputStream inputStream = new FileInputStream(new File(TEST_FILE));
-			testElement = com.xmltools.XMLTools.getDocument(inputStream);
-			inputStream.close();
+			InputStream in1 = new FileInputStream(new File(TEST_FILE));
+			testElement = XMLTools.getDocument(in1);
+			in1.close();
+
+			InputStream in2 = new FileInputStream(new File(TEST_FILE2));
+			test2Element = XMLTools.getDocument(in2);
+			in2.close();
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 		
-		System.out.println("name: "+ com.xmltools.XMLTools.getString(testElement, "misc", "name"));
-		System.out.println("age: "+ com.xmltools.XMLTools.getInt(testElement, "misc", "age"));
-		System.out.println("weigth: "+ com.xmltools.XMLTools.getString(testElement, "misc", "weigth"));
-		System.out.println("list: "+ com.xmltools.XMLTools.getArrayString(testElement, "names"));
-		
+		System.out.println("name: "+ XMLTools.getString(testElement, "misc", "name"));
+		System.out.println("age: "+ XMLTools.getInt(testElement, "misc", "age"));
+		System.out.println("weigth: "+ XMLTools.getString(testElement, "misc", "weigth"));
+		System.out.println("list: "+ XMLTools.getArrayString(testElement, "names"));
+		System.out.println("fished: "+ XMLTools.getArrayString(test2Element, "animals", "fished"));
 		
 	}
 }

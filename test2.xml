@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<strings>
+	<animals>
+		<mammals>
+			<terrestrial>
+				<cat>
+					<id>1</id>
+				</cat>
+				<dog>
+					<id>2</id>
+				</dog>
+			</terrestrial>
+		</mammals>
+		<fished>
+			<item>Angelfish</item>
+			<item>Black bass</item>
+			<item>Carp</item>
+			<item>Dorado</item>
+			<item>Electric ray</item>
+		</fished>
+	</animals>
+</strings>
