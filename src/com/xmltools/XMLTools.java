@@ -277,7 +277,7 @@ public class XMLTools
 	}
 	/**
 	 * Obtener una cadena desde un elemento
-	 * @param root Nodo ra�z
+	 * @param root Nodo raíz
 	 * @param names Nombres
 	 * @return Cadena
 	 */
@@ -285,17 +285,39 @@ public class XMLTools
 	{
 		String res = "";
 		Element node = getElement(root, names);
-		if(node != null)
+		
+		if(node != null && !hasChilds(node))
 		{
-			res = node.getTextContent().trim();
+			res = ComTools.trim(node.getTextContent().trim());
 		}
 		return res;
 	}
 
 	/******************************************************************************************************/
-	/*                                        B�SICOS XML                                                 */
+	/*                                        BÁSICOS XML                                                 */
 	/******************************************************************************************************/
 	
+	/**
+	 * Determina si tiene hijos
+	 * @param root Elemento
+	 * @return true si tiene hijoa
+	 */
+	public static boolean hasChilds(Element root)
+	{
+		NodeList nList = root.getChildNodes();
+	    Node node;
+		for(int i = 0; i < nList.getLength(); ++i)
+		{
+			if((node = nList.item(i)) != null)
+			{
+				if(node.getNodeType() == Node.ELEMENT_NODE)
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	/**
 	 * Retornar lista de hijos sin nulos
 	 * @param root Nodo raiz
